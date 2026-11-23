@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>NYC DOB Permits, Alt-COs and Legalizations | PLANS</title>
+<meta name="description" content="DOB permits, Alt-COs, legalizations and simple renovations in New York City, filed by PLANS Architecture.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"PLANS Architecture, PLLC","url":"https://permits.plans.nyc/","description":"DOB permits, Alt-COs, legalizations and simple renovations in New York City, filed by a licensed architect.","areaServed":"New York City","address":{"@type":"PostalAddress","streetAddress":"276 Greenpoint Avenue, 2nd Fl.","addressLocality":"Brooklyn","addressRegion":"NY","postalCode":"11222","addressCountry":"US"},
+"makesOffer":[{"@type":"Offer","name":"DOB permit, apartment renovation (Alt-2)","price":"5000","priceCurrency":"USD"},{"@type":"Offer","name":"Legalization records and feasibility study","price":"5000","priceCurrency":"USD"},{"@type":"Offer","name":"Commercial fit-out DOB filing","price":"5000","priceCurrency":"USD"}]}
+</script>
+<style>
+/* Layout: a blueprint-ruled hero, then plain white sheets of content, like a filing set. One blue, one graphite. */
+:root{
+  --bg:#ffffff; --sheet:#f4f7fb; --fg:#353744; --muted:#5f6475; --line:#d9e2ee;
+  --blue:#2b74b8; --blue-ink:#ffffff; --blue-soft:#e6f0fa; --grid:rgba(43,116,184,.09);
+  --ok:#1f8a4c; --pink:#c2366b;
+  --f-display:"Lato",system-ui,sans-serif; --f-body:"Lato",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#16181f; --sheet:#1d2029; --fg:#e7e9ef; --muted:#a3a8b8; --line:#2e3340;
+  --blue:#5c9ad6; --blue-ink:#0f1a26; --blue-soft:#1d2b3b; --grid:rgba(92,154,214,.10); --ok:#4cc27d; --pink:#e5729c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#16181f; --sheet:#1d2029; --fg:#e7e9ef; --muted:#a3a8b8; --line:#2e3340;
+  --blue:#5c9ad6; --blue-ink:#0f1a26; --blue-soft:#1d2b3b; --grid:rgba(92,154,214,.10); --ok:#4cc27d; --pink:#e5729c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:900;letter-spacing:-.02em}
+h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:900}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0;max-width:65ch}
+.label{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.preview-bar{background:var(--pink);color:#fff;font-size:.85rem;text-align:center;padding-block:6px}
+.preview-bar .wrap{display:block}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px;flex-wrap:wrap}
+.logo{font-weight:900;font-size:1.25rem;letter-spacing:.14em;color:var(--fg);text-decoration:none}
+.logo span{color:var(--blue)}
+nav{display:flex;gap:18px;flex-wrap:wrap;font-size:.95rem}
+nav a{color:var(--fg);text-decoration:none}
+nav a:hover,nav a[aria-current="page"]{color:var(--blue)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:4px;padding:12px 18px;font-weight:700;font-size:1rem;text-decoration:none;border:2px solid var(--blue);cursor:pointer;font-family:inherit}
+.btn.primary{background:var(--blue);color:var(--blue-ink)}
+.btn.ghost{background:transparent;color:var(--blue)}
+.hero{background-color:var(--sheet);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;border-bottom:1px solid var(--line)}
+.hero .wrap{padding-block:56px 48px;display:grid;gap:20px}
+.hero p.lede{font-size:1.2rem;color:var(--muted)}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.stamp{display:inline-flex;gap:10px;align-items:center;font-family:var(--f-mono);font-size:.8rem;color:var(--blue);border:1.5px solid var(--blue);border-radius:3px;padding:4px 10px;width:fit-content}
+section.block .wrap{padding-block:48px;display:grid;gap:24px}
+section.block + section.block{border-top:1px solid var(--line)}
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.three > div{display:grid;gap:6px;align-content:start}
+.method{display:grid;gap:0;counter-reset:m;border-top:1px solid var(--line)}
+.method li{list-style:none;display:grid;grid-template-columns:64px 1fr;gap:16px;padding-block:16px;border-bottom:1px solid var(--line)}
+.method .ltr{font-weight:900;font-size:2.2rem;color:var(--blue);line-height:1}
+.method ol{padding:0;margin:0}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:4px}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;font-size:.97rem}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--sheet)}
+tr:last-child td{border-bottom:0}
+td.num{text-align:right;white-space:nowrap;font-weight:700}
+th.num{text-align:right}
+tr.click{cursor:pointer}
+tr.click:hover td{background:var(--blue-soft)}
+.note{font-size:.9rem;color:var(--muted)}
+.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.proof .fig{font-weight:900;font-size:2.6rem;color:var(--blue);line-height:1}
+.proof > div{display:grid;gap:6px;border-left:3px solid var(--blue);padding-left:14px}
+.faq{display:grid;gap:8px}
+details{border:1px solid var(--line);border-radius:4px;padding:12px 16px;background:var(--bg)}
+summary{cursor:pointer;font-weight:700}
+details p{margin-top:8px}
+.split{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px;align-items:start}
+@media (max-width:820px){.split{grid-template-columns:1fr}}
+form{display:grid;gap:14px}
+.field{display:grid;gap:4px}
+.field label{font-weight:700;font-size:.95rem}
+.field small{color:var(--muted)}
+input,select,textarea{font:inherit;color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:4px;padding:10px 12px;width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--blue);outline:none}
+.radio{display:flex;gap:14px;flex-wrap:wrap}
+.radio label{font-weight:400;display:flex;gap:6px;align-items:center}
+.radio input{width:auto}
+.done{border:1.5px solid var(--ok);color:var(--ok);border-radius:4px;padding:14px 16px;font-weight:700}
+/* assistant */
+.chat{border:1px solid var(--line);border-radius:6px;background:var(--bg);display:grid;grid-template-rows:auto 1fr auto;max-height:560px;min-height:420px}
+.chat-head{padding:12px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;align-items:center}
+.left{font-family:var(--f-mono);font-size:.78rem;color:var(--blue)}
+.msgs{padding:14px 16px;overflow-y:auto;display:grid;gap:10px;align-content:start}
+.msg{max-width:88%;padding:10px 12px;border-radius:6px;font-size:.95rem;line-height:1.5}
+.msg.me{justify-self:end;background:var(--blue);color:var(--blue-ink)}
+.msg.bot{background:var(--sheet);border:1px solid var(--line)}
+.msg.bot a{font-weight:700}
+.chat form{grid-template-columns:1fr auto;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;padding:0 16px 10px}
+.chip{font:inherit;font-size:.82rem;border:1px solid var(--line);background:var(--sheet);color:var(--fg);border-radius:999px;padding:4px 10px;cursor:pointer}
+footer{background:var(--sheet);border-top:1px solid var(--line)}
+footer .wrap{padding-block:32px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+.crumb{font-size:.9rem}
+.crumb a{text-decoration:none}
+[data-view]{display:block}
+@media (prefers-reduced-motion:no-preference){.msg{animation:in .2s ease-out}@keyframes in{from{transform:translateY(4px)}to{transform:none}}}
+</style>
+</head>
+<body>
+
+
+<header class="top"><div class="wrap">
+  <a class="logo" href="#home">PLANS<span>.</span>NYC</a>
+  <nav aria-label="Main">
+    <a href="#dob-permit">DOB Permit</a>
+    <a href="#alt-co">Alt-CO</a>
+    <a href="#legalization">Violations</a>
+    <a href="#commercial">Commercial</a>
+    <a href="#trade">For the trade</a>
+  </nav>
+  <a class="btn primary" href="#start">Start my project</a>
+</div></header>
+
+<main>
+<!-- HOME -->
+<div data-view="home">
+  <section class="hero"><div class="wrap">
+    <span class="stamp">NYC DOB · 117 filings since 2017</span>
+    <h1>Your permit, handled.</h1>
+    <p class="lede">Permits, simple renovations, Alt-COs and legalizations in New York City. Starting prices posted up front. A typical DOB approval in 14 days. None of the stress or confusion.</p>
+    <div class="actions"><a class="btn primary" href="#dob-permit">Get my DOB permit</a><a class="btn ghost" href="#ask">Ask about my address</a></div>
+  </div></section>
+
+  <section class="block"><div class="wrap">
+    <div class="three">
+      <div><h3>We want your permit job.</h3><p>Most architects take permit work reluctantly. It is our whole focus, so it gets our best people and full attention.</p></div>
+      <div><h3>You always know where it stands.</h3><p>A weekly report until the permit is in your hands. No chasing us for news.</p></div>
+      <div><h3>We read the record before we quote.</h3><p>Every DOB, HPD and zoning record on your building, so the price and the plan hold up.</p></div>
+    </div>
+  </div></section>
+
+  <section class="block"><div class="wrap">
+    <span class="label">How we work</span>
+    <h2>The PLANS method</h2>
+    <ol class="method">
+      <li><span class="ltr">P</span><div><h3>Prepare</h3><p>We read every DOB, HPD and zoning record on your building before we quote, so surprises show up on day one, not month three.</p></div></li>
+      <li><span class="ltr">L</span><div><h3>Listen</h3><p>One call about your goal, your deadline and what worries you.</p></div></li>
+      <li><span class="ltr">A</span><div><h3>Adapt</h3><p>We pick the filing route that fits your building and explain it in plain words.</p></div></li>
+      <li><span class="ltr">N</span><div><h3>Navigate</h3><p>We file in DOB NOW, answer the objections and send you a weekly report.</p></div></li>
+      <li><span class="ltr">S</span><div><h3>Shape</h3><p>You get your permit, sign-off or new Certificate of Occupancy, and the file is closed out properly.</p></div></li>
+    </ol>
+  </div></section>
+
+  <section class="block"><div class="wrap">
+    <span class="label">Find your project</span>
+    <h2>What are you working on?</h2>
+    <div class="tablebox"><table>
+      <thead><tr><th>I want to</th><th>Start here</th><th class="num">From</th></tr></thead>
+      <tbody>
+        <tr class="click" data-go="dob-permit"><td>Renovate my apartment: kitchen, bath, walls</td><td><a href="#dob-permit">DOB Permit</a></td><td class="num">$5,000</td></tr>
+        <tr class="click" data-go="alt-co"><td>Change how a space is used, or update the CO</td><td><a href="#alt-co">Alt-CO</a></td><td class="num">Quoted</td></tr>
+        <tr class="click" data-go="legalization"><td>Fix a violation or legalize existing work</td><td><a href="#legalization">Legalization and violations</a></td><td class="num">$5,000</td></tr>
+        <tr class="click" data-go="commercial"><td>Build out a store, office or restaurant</td><td><a href="#commercial">Commercial fit-out</a></td><td class="num">$5,000</td></tr>
+        <tr class="click" data-go="ask"><td>Not sure yet</td><td><a href="#ask">Ask about my address</a></td><td class="num">Free</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Your exact quote follows a free check of your building's records. City filing fees are separate.</p>
+  </div></section>
+
+  <section class="block"><div class="wrap">
+    <span class="label">Our record</span>
+    <h2>117 DOB filings at 64 addresses since 2017.</h2>
+    <div class="proof">
+      <div><span class="fig">14 days</span><p>Typical time from filing to DOB approval on an apartment renovation, across 31 filings.</p></div>
+      <div><span class="fig">48 days</span><p>Typical time when DOB does a full plan review, across 23 filings.</p></div>
+      <div><span class="fig">10 days</span><p>Typical time to approve a change after approval.</p></div>
+    </div>
+    <p class="note">Medians from NYC Open Data for filings with PLANS as applicant of record. No client names or addresses, ever.</p>
+  </div></section>
+
+  <section class="block" id="ask-home"><div class="wrap split">
+    <div style="display:grid;gap:14px">
+      <span class="label">Ask about your address</span>
+      <h2>Three quick questions are on us.</h2>
+      <p>Ask anything about NYC permits. For your own building, leave your name, email and address and we will read its records and get back to you.</p>
+      <a class="btn ghost" href="#start" style="width:fit-content">Or start my project now</a>
+    </div>
+    <div class="chat-slot"></div>
+  </div></section>
+</div>
+
+<!-- DOB PERMIT -->
+<div data-view="dob-permit" hidden>
+  <section class="hero"><div class="wrap">
+    <span class="crumb"><a href="#home">Home</a> / DOB Permit</span>
+    <span class="stamp">Apartment renovation · Alt-2</span>
+    <h1>Renovating your apartment? We get the DOB permit, start to finish.</h1>
+    <p class="lede">A new kitchen, a new bathroom, a moved wall. In New York, most of it needs a DOB permit, and often your board or managing agent wants one before work starts. We file it, answer every DOB question and keep you posted every week.</p>
+    <div class="actions"><a class="btn primary" href="#start">Start my DOB permit</a></div>
+  </div></section>
+  <section class="block"><div class="wrap split">
+    <div style="display:grid;gap:16px">
+      <h2>What you get</h2>
+      <ul>
+        <li>A check of your building's DOB, HPD and zoning records before we quote</li>
+        <li>One call to understand your plans, your deadline and your board's rules</li>
+        <li>Filing drawings and the DOB NOW application, with PLANS as architect of record</li>
+        <li>Answers to DOB objections until the plans are approved</li>
+        <li>A weekly report until the permit is in your hand</li>
+        <li>Sign-off at the end, so your apartment's record is clean when you sell or refinance</li>
+      </ul>
+      <h2>How long it takes</h2>
+      <p>Across 31 of our apartment renovation filings, the typical time from filing to DOB approval was 14 days. When DOB does a full plan review, plan on about seven weeks.</p>
+    </div>
+    <div style="display:grid;gap:12px">
+      <h2>Starting prices</h2>
+      <div class="tablebox"><table>
+        <thead><tr><th>Service</th><th class="num">From</th></tr></thead>
+        <tbody>
+          <tr><td>DOB filing, general construction</td><td class="num">$5,000</td></tr>
+          <tr><td>Plumbing filing, added on</td><td class="num">$3,000</td></tr>
+          <tr><td>Energy code filing, added on</td><td class="num">$2,000</td></tr>
+          <tr><td>Existing conditions survey</td><td class="num">$1,000</td></tr>
+          <tr><td>Existing conditions drawings</td><td class="num">$1,000</td></tr>
+          <tr><td>Final inspection and Letter of Completion</td><td class="num">$1,000</td></tr>
+          <tr><td>Change after approval</td><td class="num">$1,000</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">Your exact quote follows the free address check. DOB filing fees are paid to the City.</p>
+    </div>
+  </div></section>
+  <section class="block"><div class="wrap">
+    <h2>Common questions</h2>
+    <div class="faq">
+      <details><summary>Does my renovation need a permit?</summary><p>Moving plumbing, gas or walls almost always does. Cosmetic work like paint and floors usually does not. Tell us your plans and we will say which.</p></details>
+      <details><summary>My board wants an architect. Is that you?</summary><p>Yes. We prepare what the board and managing agent ask for alongside the DOB filing.</p></details>
+      <details><summary>Who files with the City?</summary><p>We do, in DOB NOW. You sign a few forms; we tell you exactly which ones and when.</p></details>
+    </div>
+  </div></section>
+</div>
+
+<!-- ALT-CO -->
+<div data-view="alt-co" hidden>
+  <section class="hero"><div class="wrap">
+    <span class="crumb"><a href="#home">Home</a> / Alt-CO</span>
+    <span class="stamp">Change of use · new Certificate of Occupancy</span>
+    <h1>Changing how your building is used? We get you the new Certificate of Occupancy.</h1>
+    <p class="lede">For owners adding a unit, turning a store into an apartment, or fixing a CO that does not match the building.</p>
+    <div class="actions"><a class="btn primary" href="#start">Check my building's CO</a></div>
+  </div></section>
+  <section class="block"><div class="wrap split">
+    <div style="display:grid;gap:12px"><h2>What you get</h2><p>A records and zoning check first, the Alt-CO filing, objections answered, inspections lined up, and the new CO issued and closed out.</p></div>
+    <div style="display:grid;gap:12px">
+      <h2>Starting prices</h2>
+      <div class="tablebox"><table><thead><tr><th>Service</th><th class="num">From</th></tr></thead><tbody>
+        <tr><td>DOB filing, general construction</td><td class="num">$5,000</td></tr>
+        <tr><td>New CO close-out</td><td class="num">Quoted per job</td></tr>
+        <tr><td>Progress inspection, each</td><td class="num">$500</td></tr>
+      </tbody></table></div>
+    </div>
+  </div></section>
+  <section class="block"><div class="wrap"><h2>Common questions</h2><div class="faq">
+    <details><summary>Do I need a new CO?</summary><p>If the number of units or the use changes, yes. We confirm it from your building's record before you commit.</p></details>
+    <details><summary>How long does it take?</summary><p>Longer than a simple permit, because of inspections and close-out. We give you a schedule after the records check.</p></details>
+    <details><summary>Can I live in it while you file?</summary><p>It depends on the work and the current CO. Ask us with your address.</p></details>
+  </div></div></section>
+</div>
+
+<!-- LEGALIZATION -->
+<div data-view="legalization" hidden>
+  <section class="hero"><div class="wrap">
+    <span class="crumb"><a href="#home">Home</a> / Legalization and violations</span>
+    <span class="stamp">DOB and ECB violations · basements · unpermitted work</span>
+    <h1>A violation on your building, or work done without a permit? We get it legal.</h1>
+    <p class="lede">For owners facing a DOB or ECB violation, a basement or cellar used as living space, or a sale held up by unpermitted work.</p>
+    <div class="actions"><a class="btn primary" href="#start">Look up my violations</a></div>
+  </div></section>
+  <section class="block"><div class="wrap split">
+    <div style="display:grid;gap:12px"><h2>What you get</h2><p>We pull every violation and filing on the building, tell you what can be legalized and what it takes, file, and clear the violation on the record.</p></div>
+    <div style="display:grid;gap:12px"><h2>Starting prices</h2>
+      <div class="tablebox"><table><thead><tr><th>Service</th><th class="num">From</th></tr></thead><tbody>
+        <tr><td>Records and feasibility study</td><td class="num">$5,000</td></tr>
+        <tr><td>DOB filing to legalize, general construction</td><td class="num">$5,000</td></tr>
+      </tbody></table></div>
+    </div>
+  </div></section>
+  <section class="block"><div class="wrap"><h2>Common questions</h2><div class="faq">
+    <details><summary>Can my basement apartment be legalized?</summary><p>Sometimes. It turns on ceiling height, light and air, exits and zoning. The records study answers it for your building.</p></details>
+    <details><summary>What happens to the fine?</summary><p>Clearing the condition on the record is what stops the clock. We tell you what has to happen and in what order.</p></details>
+    <details><summary>Will this hold up my sale?</summary><p>Open violations and unpermitted work often do. Starting early gives your buyer a clear path.</p></details>
+  </div></div></section>
+</div>
+
+<!-- COMMERCIAL -->
+<div data-view="commercial" hidden>
+  <section class="hero"><div class="wrap">
+    <span class="crumb"><a href="#home">Home</a> / Commercial fit-out</span>
+    <span class="stamp">Stores · offices · restaurants</span>
+    <h1>Opening a store, office or restaurant? Your permit, on your lease timeline.</h1>
+    <p class="lede">For commercial tenants and landlords with a build-out and a rent clock running.</p>
+    <div class="actions"><a class="btn primary" href="#start">Start my fit-out permit</a></div>
+  </div></section>
+  <section class="block"><div class="wrap split">
+    <div style="display:grid;gap:12px"><h2>What you get</h2><p>The records check, filing drawings, the DOB filing, professional certification when it saves time, and sign-off so you can open.</p></div>
+    <div style="display:grid;gap:12px"><h2>Starting prices</h2>
+      <div class="tablebox"><table><thead><tr><th>Service</th><th class="num">From</th></tr></thead><tbody>
+        <tr><td>DOB filing, general construction</td><td class="num">$5,000</td></tr>
+        <tr><td>Professional certification</td><td class="num">$5,000</td></tr>
+        <tr><td>Sign permit application</td><td class="num">$1,000</td></tr>
+        <tr><td>Final inspection and Letter of Completion</td><td class="num">$1,000</td></tr>
+      </tbody></table></div>
+    </div>
+  </div></section>
+  <section class="block"><div class="wrap"><h2>In a landmark building?</h2><p>We file with the Landmarks Preservation Commission too.</p>
+    <div class="tablebox"><table><thead><tr><th>LPC approval</th><th class="num">From</th></tr></thead><tbody>
+      <tr><td>Certificate of No Effect</td><td class="num">$2,500</td></tr>
+      <tr><td>Permit for Minor Work</td><td class="num">$1,500</td></tr>
+      <tr><td>Certificate of Appropriateness</td><td class="num">$7,500</td></tr>
+    </tbody></table></div>
+  </div></section>
+</div>
+
+<!-- TRADE -->
+<div data-view="trade" hidden>
+  <section class="hero"><div class="wrap">
+    <span class="crumb"><a href="#home">Home</a> / For the trade</span>
+    <h1>Designers and contractors: hand us the permit and get back to the work.</h1>
+    <p class="lede">You bring the client and the design. We handle DOB, so your schedule does not wait on paperwork.</p>
+    <div class="actions"><a class="btn primary" href="#start">Refer a project</a></div>
+  </div></section>
+  <section class="block"><div class="wrap">
+    <h2>How it works</h2>
+    <ol>
+      <li>Send us the address and the scope.</li>
+      <li>We read the building's record and quote the owner directly.</li>
+      <li>The owner signs with us and pays us. You stay out of the middle on fees.</li>
+      <li>We file, answer objections and copy you on the weekly report.</li>
+      <li>You get the permit, and later the sign-off, so you can close the job.</li>
+    </ol>
+    <p>Why the trade sends us work: we answer the same day, we do not redesign your project, and we tell you early when a building has a problem on its record.</p>
+  </div></section>
+</div>
+
+<!-- ASK -->
+<div data-view="ask" hidden>
+  <section class="block"><div class="wrap split">
+    <div style="display:grid;gap:14px">
+      <span class="crumb"><a href="#home">Home</a> / Ask about my address</span>
+      <h1>Ask about your address.</h1>
+      <p>Three quick questions about NYC permits are free. Anything about your own building goes to a person, who reads its records and replies by email.</p>
+    </div>
+    <div class="chat-slot"></div>
+  </div></section>
+</div>
+
+<!-- START -->
+<div data-view="start" hidden>
+  <section class="block"><div class="wrap split">
+    <div style="display:grid;gap:14px">
+      <span class="crumb"><a href="#home">Home</a> / Start my project</span>
+      <h1>Start my project</h1>
+      <p>Tell us your address. We read the record and tell you what it takes.</p>
+      
+    </div>
+    <form id="intake" novalidate>
+      <div class="field"><label for="f-name">Name</label><input id="f-name" required autocomplete="name"></div>
+      <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="f-phone">Cell phone <small>(optional)</small></label><input id="f-phone" type="tel" autocomplete="tel"></div>
+      <div class="field"><label for="f-addr">Property address</label><input id="f-addr" required placeholder="Street, borough"></div>
+      <div class="field"><label for="f-goal">What do you want to do?</label><textarea id="f-goal" rows="3" required></textarea></div>
+      <div class="field"><label for="f-type">Project type</label><select id="f-type"><option>DOB Permit (apartment renovation)</option><option>Alt-CO</option><option>Legalization or violation</option><option>Commercial fit-out</option><option>Not sure</option></select></div>
+      <div class="field"><span style="font-weight:700">I am the</span><div class="radio">
+        <label><input type="radio" name="role" id="r-owner" checked> Owner</label>
+        <label><input type="radio" name="role" id="r-tenant"> Tenant</label>
+        <label><input type="radio" name="role" id="r-trade"> Designer or contractor</label></div></div>
+      <div class="field"><label for="f-when">When do you need to start? <small>(optional)</small></label><input id="f-when" placeholder="Month or date"></div>
+      <button class="btn primary" type="submit" style="width:fit-content">Send to PLANS</button>
+      <input id="f-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+      <div id="intake-err" class="note" hidden>That did not go through. Please try again in a minute.</div>
+      <div id="intake-done" class="done" hidden>Thanks. We are reading the records on your building now and will email you within one business day with what it takes.</div>
+    </form>
+  </div></section>
+</div>
+</main>
+
+<footer><div class="wrap">
+  <div><strong>PLANS Architecture, PLLC</strong><br>276 Greenpoint Avenue, 2nd Fl., Brooklyn, NY 11222</div>
+  <div>Prepare · Listen · Adapt · Navigate · Shape</div>
+</div></footer>
+
+<template id="chat-tpl">
+  <div class="chat">
+    <div class="chat-head"><strong>PLANS permit assistant</strong><span class="left"></span></div>
+    <div class="msgs" aria-live="polite"></div>
+    <div>
+      <div class="chips">
+        <button class="chip" type="button">Do I need a permit to move my kitchen sink?</button>
+        <button class="chip" type="button">What is an Alt-CO?</button>
+        <button class="chip" type="button">What about 12 Sample Street?</button>
+      </div>
+      <form class="ask"><input aria-label="Your question" placeholder="Ask about NYC permits"><button class="btn primary" type="submit">Ask</button></form>
+    </div>
+  </div>
+</template>
+
+<script>
+(function(){
+  const val=id=>(document.getElementById(id).value||"").trim();
+  const VIEWS=["home","dob-permit","alt-co","legalization","commercial","trade","ask","start"];
+  function show(){
+    const v=VIEWS.includes(location.hash.slice(1))?location.hash.slice(1):"home";
+    document.querySelectorAll("[data-view]").forEach(el=>el.hidden=el.dataset.view!==v);
+    document.querySelectorAll("nav a").forEach(a=>a.toggleAttribute("aria-current",a.getAttribute("href")==="#"+v));
+    if(v!=="home") window.scrollTo(0,0);
+  }
+  addEventListener("hashchange",show); show();
+  document.querySelectorAll("tr.click").forEach(tr=>tr.addEventListener("click",()=>location.hash=tr.dataset.go));
+
+  // Assistant preview: sample answers only. Live version: capped model, PLANS pages only.
+  let free=3;
+  const SAMPLE=[
+    [/sink|kitchen|plumb|bath/i,"Usually yes. Moving plumbing in NYC needs a DOB plumbing filing, and most co-op and condo boards want it before work starts."],
+    [/alt-?co|certificate of occupancy|\bco\b|change of use/i,"An Alt-CO is a DOB alteration that changes the use, the number of units or the exits, so the building gets a new Certificate of Occupancy at the end."],
+    [/violation|ecb|legal|basement|cellar/i,"Most violations clear by fixing the condition and filing to legalize it, then getting a sign-off. What it takes depends on the building's record."],
+    [/how long|time|weeks|days/i,"Across our apartment renovation filings, DOB approval typically came 14 days after filing. A full plan review runs about seven weeks."],
+    [/cost|price|fee|\$/i,"Our DOB filing for general construction starts at $5,000. The exact quote follows a free check of your building's records."]
+  ];
+  const ADDR=/\b\d{1,5}[-\s]?\d{0,3}\s+[A-Za-z0-9 .'-]*(street|st\b|avenue|ave\b|road|rd\b|place|pl\b|boulevard|blvd|lane|ln\b|drive|dr\b|court|ct\b|parkway|pkwy|terrace|way)/i;
+  const chats=[];
+  function mount(slot){
+    const node=document.getElementById("chat-tpl").content.firstElementChild.cloneNode(true);
+    slot.appendChild(node);
+    const msgs=node.querySelector(".msgs"), left=node.querySelector(".left"), form=node.querySelector("form.ask"), input=form.querySelector("input");
+    const add=(cls,html)=>{const d=document.createElement("div");d.className="msg "+cls;d.innerHTML=html;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;};
+    const c={msgs,left,add}; chats.push(c);
+    add("bot","Ask me anything about NYC permits. Three quick questions are on us. For your own building, I'll get you to a person.");
+    function ask(q){
+      q=q.trim(); if(!q) return;
+      add("me",q.replace(/</g,"&lt;"));
+      if(ADDR.test(q)){add("bot",'Happy to look at that building. Leave your name, email and the address and we\'ll read its records and reply. <a href="#start">Open the form</a>');return;}
+      if(free<=0){add("bot",'You have used your three free questions. Leave your name, email and property address and a person will answer the rest. <a href="#start">Start my project</a>');return;}
+      free--; update();
+      const hit=SAMPLE.find(([r])=>r.test(q));
+      const local=hit?hit[1]:"I only answer questions about NYC permits and PLANS's services. Try asking about DOB permits, Alt-COs or violations.";
+      fetch("/api/ask",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({q})})
+        .then(r=>r.ok?r.json():Promise.reject(r.status))
+        .then(d=>{ if(d.gate){free=0;update();} add("bot",(d.answer||local).replace(/</g,"&lt;")+' Want us to look at your building? <a href="#start">Start my project</a>.'); })
+        .catch(()=>add("bot",local+' Want us to look at your building? <a href="#start">Start my project</a>.'));
+    }
+    form.addEventListener("submit",e=>{e.preventDefault();ask(input.value);input.value="";});
+    node.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>ask(b.textContent)));
+  }
+  function update(){chats.forEach(c=>c.left.textContent=free+" free question"+(free===1?"":"s")+" left");}
+  document.querySelectorAll(".chat-slot").forEach(mount); update();
+
+  document.getElementById("intake").addEventListener("submit",e=>{
+    e.preventDefault();
+    const req=["f-name","f-email","f-addr","f-goal"].filter(id=>!document.getElementById(id).value.trim());
+    if(req.length){document.getElementById(req[0]).focus();return;}
+    const btn=e.target.querySelector("button[type=submit]"); btn.disabled=true;
+    const role=document.querySelector('input[name="role"]:checked');
+    const body={name:val("f-name"),email:val("f-email"),phone:val("f-phone"),address:val("f-addr"),goal:val("f-goal"),type:val("f-type"),role:role?role.parentElement.textContent.trim():"",when:val("f-when"),company:val("f-hp")};
+    fetch("/api/intake",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)})
+      .then(r=>{ if(!r.ok) throw 0; document.getElementById("intake-done").hidden=false; })
+      .catch(()=>{ btn.disabled=false; document.getElementById("intake-err").hidden=false; });
+  });
+})();
+</script>
+
+</body>
+</html>
