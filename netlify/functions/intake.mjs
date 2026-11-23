@@ -1,8 +1,20 @@
-// "Start my project" form: adds one lead row to Airtable (Projects table, 03_PIPELINE),
-// where the Lead Pipeline run picks it up. This function sends no email.
-// Netlify environment variables: AIRTABLE_TOKEN (write access to that base only),
-// AIRTABLE_BASE_ID, AIRTABLE_TABLE_ID, and AIRTABLE_FIELDS, a JSON map from the
-// form keys below to the table's field names.
+// "Start my project" form: adds one lead row to the Airtable Projects table
+// (base apprkIjj6tsyzZH0e, Drive Category 03_PIPELINE, Waiting On Me).
+// This function sends no email. Netlify environment variable: AIRTABLE_TOKEN,
+// a personal access token with write access to that base only.
+// Optional overrides: AIRTABLE_BASE_ID, AIRTABLE_TABLE_ID.
+const BASE = process.env.AIRTABLE_BASE_ID || "apprkIjj6tsyzZH0e";
+const TABLE = process.env.AIRTABLE_TABLE_ID || "tblyXgBIxZK3fZAYZ";
+const F = {
+  projectName: "fldGfFKkYXrALwxiZ",
+  status: "flddj1tjfAw7o4Ud4",
+  waitingOn: "fldQjnIpt8JEceQ4M",
+  nextAction: "fld3Yx2tzMnhILjmh",
+  lastContact: "fldjj4yEchALr2TKl",
+  ownerName: "fldghYUO7AogdogiH",
+  ownerEmail: "fldp26hz7Bhkz73cN",
+  driveCategory: "fld8UahsQha8NGc1G",
+};
 const KEYS = ["name", "email", "phone", "address", "goal", "type", "role", "when"];
 
 export default async (req) => {
@@ -10,20 +22,40 @@ export default async (req) => {
   let body = {};
   try { body = await req.json(); } catch {}
   if (body.company) return Response.json({ ok: true }); // honeypot: bots fill the hidden field
-  const clean = Object.fromEntries(KEYS.map((k) => [k, String(body[k] || "").trim().slice(0, 2000)]));
-  if (!clean.name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(clean.email) || !clean.address || !clean.goal) {
+  const c = Object.fromEntries(KEYS.map((k) => [k, String(body[k] || "").replace(/\s+/g, " ").trim().slice(0, 1000)]));
+  if (!c.name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(c.email) || !c.address || !c.goal) {
     return Response.json({ error: "missing" }, { status: 400 });
   }
-  const map = JSON.parse(process.env.AIRTABLE_FIELDS || "{}");
-  const fields = {};
-  for (const k of KEYS) if (map[k] && clean[k]) fields[map[k]] = clean[k];
-  if (map.source) fields[map.source] = "permits.plans.nyc";
+  const today = new Date().toLocaleDateString("en-CA", { timeZone: "America/New_York" });
+  const details = [
+    `Web lead from permits.plans.nyc, ${today}. Reply with the first information request.`,
+    `Property: ${c.address}`,
+    `Goal: ${c.goal}`,
+    c.type && `Project type: ${c.type}`,
+    c.role && `Role: ${c.role}`,
+    c.when && `Timing: ${c.when}`,
+    c.phone && `Phone: ${c.phone}`,
+  ].filter(Boolean).join("\n");
 
-  const res = await fetch(`https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${process.env.AIRTABLE_TABLE_ID}`, {
+  const fields = {
+    [F.projectName]: c.name.toUpperCase().slice(0, 100),
+    [F.status]: "Discovery",
+    [F.waitingOn]: "Me",
+    [F.driveCategory]: "03_PIPELINE",
+    [F.ownerName]: c.name,
+    [F.ownerEmail]: c.email,
+    [F.lastContact]: today,
+    [F.nextAction]: details,
+  };
+
+  const res = await fetch(`https://api.airtable.com/v0/${BASE}/${TABLE}`, {
     method: "POST",
     headers: { Authorization: `Bearer ${process.env.AIRTABLE_TOKEN}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ records: [{ fields }], typecast: true }),
+    body: JSON.stringify({ records: [{ fields }] }),
   });
-  if (!res.ok) return Response.json({ error: "save" }, { status: 502 });
+  if (!res.ok) {
+    console.error("airtable", res.status, (await res.text()).slice(0, 300));
+    return Response.json({ error: "save" }, { status: 502 });
+  }
   return Response.json({ ok: true });
 };
